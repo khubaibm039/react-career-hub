@@ -4,6 +4,9 @@ import { BiDollarCircle } from "react-icons/bi";
 import { AiTwotoneCreditCard } from "react-icons/ai";
 import { AiOutlinePhone } from "react-icons/ai";
 import { AiOutlineMail } from "react-icons/ai";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { saveJobApplication } from "../../utility/localStorage";
 
 const JobDetails = () => {
 
@@ -13,6 +16,12 @@ const JobDetails = () => {
     // console.log(job);
     const { job_description, job_responsibility, educational_requirements, experiences, job_title, salary, contact_information } = job;
     const { phone, email, address } = contact_information;
+
+    const handleApplyJob = () => {
+        saveJobApplication(id)
+        toast('you have applied successfully')
+    }
+
     return (
         <div>
             <h2 className="my-36 text-3xl text-center">job Details : {id}</h2>
@@ -43,9 +52,9 @@ const JobDetails = () => {
                             <p className="mt-6  flex  "><MdLocationOn className="text-3xl mr-2"></MdLocationOn> <span className="font-bold">Address: </span> {address} </p>
                         </div>
                     </div>
-                    <Link className="flex justify-end"> <button className="btn btn-primary w-full">Apply Now</button></Link>
+                    <Link className="flex justify-end"> <button onClick={handleApplyJob} className="btn btn-primary w-full">Apply Now</button></Link>
                 </div>
-
+                <ToastContainer />
             </div>
         </div>
     );
