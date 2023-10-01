@@ -1,9 +1,10 @@
 import PropTypes from 'prop-types';
 import { MdLocationOn } from "react-icons/md";
 import { BiDollarCircle } from "react-icons/bi";
+import { Link } from 'react-router-dom';
 const Job = ({ job }) => {
 
-    const { logo, job_title, company_name, remote_or_onsite, location, job_type, salary } = job;
+    const { logo, job_title, company_name, remote_or_onsite, location, job_type, salary, id } = job;
 
     return (
         <div>
@@ -21,11 +22,13 @@ const Job = ({ job }) => {
                         <h2 className='flex gap-2 items-center'><MdLocationOn className='text-2xl'></MdLocationOn>{location}</h2>
                     </div>
                     <div className="card-actions ">
-                        <button className="btn bg-gradient-to-r from-[#7E90FE] to-[#9873FF] text-white font-bold text-xl">View Details</button>
+                        <Link to={`/job/${id}`}>
+                            <button className="btn bg-gradient-to-r from-[#7E90FE] to-[#9873FF] text-white font-bold text-xl">View Details</button>
+                        </Link>
                     </div>
                 </div>
             </div>
-        </div>
+        </div >
     );
 };
 
