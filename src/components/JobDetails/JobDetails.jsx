@@ -12,13 +12,14 @@ const JobDetails = () => {
 
     const jobs = useLoaderData();
     const { id } = useParams();
-    const job = jobs.find(job => job.id == id);
+    const idInt = parseInt(id);
+    const job = jobs.find(job => job.id === idInt);
     // console.log(job);
     const { job_description, job_responsibility, educational_requirements, experiences, job_title, salary, contact_information } = job;
     const { phone, email, address } = contact_information;
 
     const handleApplyJob = () => {
-        saveJobApplication(id)
+        saveJobApplication(idInt)
         toast('you have applied successfully')
     }
 
