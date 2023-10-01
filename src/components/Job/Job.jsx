@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
-
+import { MdLocationOn } from "react-icons/md";
+import { BiDollarCircle } from "react-icons/bi";
 const Job = ({ job }) => {
 
     const { logo, job_title, company_name, remote_or_onsite, location, job_type, salary } = job;
@@ -12,11 +13,15 @@ const Job = ({ job }) => {
                     <h2 className="card-title">{job_title}</h2>
                     <p>{company_name}?</p>
                     <div className='flex gap-4'>
-                        <button className='btn btn-outline btn-secondary'>{remote_or_onsite}</button>
-                        <button className='btn btn-outline btn-secondary'>{job_type}</button>
+                        <button className='btn btn-outline  text-[#7E90FE] hover:bg-[#7E90FE]'>{remote_or_onsite}</button>
+                        <button className='btn btn-outline  text-[#7E90FE] hover:bg-[#7E90FE]'>{job_type}</button>
+                    </div>
+                    <div className='flex gap-6'>
+                        <h2 className="flex gap-2 items-center"><BiDollarCircle className='text-2xl'></BiDollarCircle>Salary: {salary}</h2>
+                        <h2 className='flex gap-2 items-center'><MdLocationOn className='text-2xl'></MdLocationOn>{location}</h2>
                     </div>
                     <div className="card-actions ">
-                        <button className="btn btn-primary">View Details</button>
+                        <button className="btn bg-gradient-to-r from-[#7E90FE] to-[#9873FF] text-white font-bold text-xl">View Details</button>
                     </div>
                 </div>
             </div>
